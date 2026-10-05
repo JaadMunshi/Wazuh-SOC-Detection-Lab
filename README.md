@@ -69,10 +69,10 @@ My brute force rule i initally used the wrong parent, i discovered this beacuse 
 ### VMs
 <img width="452" height="495" alt="image" src="https://github.com/user-attachments/assets/dacaaf6e-2339-4124-960e-11c8da7a1c63" />
 
-### Custom rules
+### Custom Rules
 <img width="1443" height="951" alt="image" src="https://github.com/user-attachments/assets/0bf32764-dab6-4bcd-8ace-8345643b912e" />
 
-### Wazuh dashboard
+### Wazuh Dashboard
 <img width="1907" height="1087" alt="image" src="https://github.com/user-attachments/assets/b7059e14-b6ac-4ea1-b4cc-68f18202e15d" />
 
 ### File Integrity Monitoring (FIM)
@@ -101,7 +101,7 @@ My brute force rule i initally used the wrong parent, i discovered this beacuse 
 * Basic SOC investigation and troubleshooting
 * Evidence collection and documentation
 
-# project outcome
+# Project Outcome
 Honestly, as irritating as running into issues can be, finding a way to resolve them is always the best way to explore and learn new things. This project gave me practical experience building a small SOC environment from the ground up. I configured Windows telemetry, investigated Wazuh and how it processed events, developed custom detection rules, generated security activity using Linux and also used SSH to remotely access Wazuh from my host device, as I found it to run smoother and save me time.
 I worked with different types of security activity throughout the project, including network enumeration, port scanning, SMB connection attempts, failed logon attempts and Windows process creation. I also configured and tested File Integrity Monitoring to understand how changes to files on a Windows endpoint could be detected and investigated.
 A big part of the project was troubleshooting detections that did not work straight away. I investigated Wazuh alerts, traced existing rule hierarchies, identified the correct parent or matched rules and investigated event fields to understand why a detection was not triggering. This included fixing the process detection by using the PCRE2 regex type so the rule could correctly match the required process names.
