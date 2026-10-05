@@ -1,14 +1,14 @@
-\# Suspicious Process Detection Investigation — Rule 100060
+# Suspicious Process Detection Investigation — Rule 100060
 
 
 
-\## Objective
+## Objective
 
 My aim was to create a custom Wazuh rule to detect the creation of commonly used Windows command and scripting interpreters.
 
 
 
-\## Investigation
+## Investigation
 
 I enabled Process Creation auditing on the Windows VM so that Windows would generate process creation events.
 
@@ -22,7 +22,7 @@ I investigated the rule and found that the field needed to use the PCRE2 regex t
 
 
 
-\## Detection Development
+## Detection Development
 
 I updated Rule 100060 to use type="pcre2" and configured it to detect PowerShell, CMD, WScript, CScript and MSHTA.
 
@@ -30,7 +30,7 @@ The rule was configured to generate a Level 10 alert when one of these processes
 
 
 
-\## Testing
+## Testing
 
 I tested the rule by launching PowerShell, CMD, WScript, CScript and MSHTA on the Windows VM.
 
@@ -38,7 +38,7 @@ Rule 100060 successfully generated a Level 10 alert for each tested process.
 
 
 
-\## Result
+## Result
 
 The custom process detection worked successfully and was mapped to MITRE ATT\&CK T1059 — Command and Scripting Interpreter.
 
