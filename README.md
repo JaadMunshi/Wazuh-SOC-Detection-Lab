@@ -1,6 +1,6 @@
 # Wazuh-SOC-Detection-Lab
 A home SOC lab using 3 VMs (Kali Linux, Windows, Wazuh) focusing on Windows security monitoring and custom detection engineering.
-## Project overview
+## Project Overview
 This project is a home SOC lab. I built this to practise security monitoring, log analysis and detection engineering using Wazuh. This project also helped me to have a better understanding of how SOC analysts work and what they look for in security alerts, but also to enjoy myself and have a bit of fun experimenting with different operating systems and playing around with Wazuh.
 
 -Kali linux - controlled security testing 
