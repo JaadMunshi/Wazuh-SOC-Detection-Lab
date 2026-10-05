@@ -1,10 +1,10 @@
-\# MITRE ATT\&CK Mapping
+# MITRE ATT\&CK Mapping
 
 The custom Wazuh detection rules created in this project were mapped to the relevant MITRE ATT\&CK techniques.
 
 
 
-\## Detection Mapping
+## Detection Mapping
 
 | Rule ID | Detection | MITRE ATT\&CK Technique |
 
@@ -20,7 +20,7 @@ The custom Wazuh detection rules created in this project were mapped to the rele
 
 
 
-\## Purpose
+## Purpose
 
 I used MITRE ATT\&CK mapping to show which attacker techniques each custom detection rule is designed to identify.
 
