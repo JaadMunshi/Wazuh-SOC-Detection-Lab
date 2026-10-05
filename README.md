@@ -68,10 +68,13 @@ My brute force rule i initally used the wrong parent, i discovered this beacuse 
 ## Screenshots 
 ### VMs
 <img width="452" height="495" alt="image" src="https://github.com/user-attachments/assets/dacaaf6e-2339-4124-960e-11c8da7a1c63" />
+
 ### Custom rules
 <img width="1443" height="951" alt="image" src="https://github.com/user-attachments/assets/0bf32764-dab6-4bcd-8ace-8345643b912e" />
+
 ### Wazuh dashboard
 <img width="1907" height="1087" alt="image" src="https://github.com/user-attachments/assets/b7059e14-b6ac-4ea1-b4cc-68f18202e15d" />
+
 ### File Integrity Monitoring (FIM)
 <img width="1917" height="696" alt="Screenshot 2026-10-05 222053" src="https://github.com/user-attachments/assets/7d9590fe-8574-4c69-8b1f-c01dadb41c98" />
 
