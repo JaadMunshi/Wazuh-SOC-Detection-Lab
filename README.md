@@ -3,12 +3,12 @@ A home SOC lab using 3 VMs (Kali Linux, Windows, Wazuh) focusing on Windows secu
 ## Project Overview
 This project is a home SOC lab. I built this to practise security monitoring, log analysis and detection engineering using Wazuh. This project also helped me to have a better understanding of how SOC analysts work and what they look for in security alerts, but also to enjoy myself and have a bit of fun experimenting with different operating systems and playing around with Wazuh.
 
-- Kali linux - controlled security testing 
+- Kali Linux - controlled security testing 
 - Windows - monitored endpoint
 - Wazuh - detections and alerts, security monitoring, collecting logs. The main aim of the project was to collect Windows security telemetry, investigate the events in Wazuh and create custom detection rules for different types of activity.
 
 ## Lab Architecture
-To build this lab i used virtual box to creat my 3 VMs and connected them through a Host-Only network.
+To build this lab I used virtual box to creat my 3 VMs and connected them through a Host-Only network.
 - Kali Linux -192.168.56.102
 - Windows - 192.168.56.101
 - Wazuh - 192.168.56.103
