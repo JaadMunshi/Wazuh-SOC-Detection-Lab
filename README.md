@@ -8,7 +8,7 @@ This project is a home SOC lab. I built this to practise security monitoring, lo
 - Wazuh - detections and alerts, security monitoring, collecting logs. The main aim of the project was to collect Windows security telemetry, investigate the events in Wazuh and create custom detection rules for different types of activity.
 
 ## Lab Architecture
-To build this lab I used virtual box to creat my 3 VMs and connected them through a Host-Only network.
+To build this lab I used virtual box to create my 3 VMs and connected them through a Host-Only network.
 - Kali Linux -192.168.56.102
 - Windows - 192.168.56.101
 - Wazuh - 192.168.56.103
