@@ -1,14 +1,14 @@
-\# Blocked SMB Connection Investigation — Rule 100080
+# Blocked SMB Connection Investigation — Rule 100080
 
 
 
-\## Objective
+## Objective
 
 My aim was to create a custom Wazuh rule to detect blocked SMB connection attempts against the Windows VM.
 
 
 
-\## Investigation
+## Investigation
 
 I generated a controlled TCP connection attempt from the Kali VM to port 445 on the Windows VM.
 
@@ -20,7 +20,7 @@ I also confirmed that the destination port was 445, which is the standard port u
 
 
 
-\## Detection Development
+## Detection Development
 
 I created Rule 100080 using Rule 60104 as the matched rule.
 
@@ -28,7 +28,7 @@ The rule was configured to detect blocked connections where the destination port
 
 
 
-\## Testing
+## Testing
 
 I tested the rule by generating a controlled TCP connection attempt from Kali to port 445 on the Windows VM.
 
@@ -36,7 +36,7 @@ The Windows Firewall blocked the connection and Rule 100080 successfully generat
 
 
 
-\## Result
+## Result
 
 The custom SMB detection worked successfully and was mapped to MITRE ATT\&CK T1021.002 — SMB/Windows Admin Shares.
 
