@@ -1,5 +1,5 @@
 # Wazuh-SOC-Detection-Lab
-A home SOC lab using 3 VMs (Kali Linux, Windows, Wazuh) focusing on Windows security monitoring and custom detection engineering.
+A home SOC lab using 3 virtual machines (VMs), (Kali Linux, Windows, Wazuh) focusing on Windows security monitoring and custom detection engineering.
 ## Project Overview
 This project is a home SOC lab. I built this to practise security monitoring, log analysis and detection engineering using Wazuh. This project also helped me to have a better understanding of how SOC analysts work and what they look for in security alerts, but also to enjoy myself and have a bit of fun experimenting with different operating systems and playing around with Wazuh.
 
@@ -9,7 +9,7 @@ This project is a home SOC lab. I built this to practise security monitoring, lo
 
 ## Lab Architecture
 To build this lab I used virtual box to create my 3 VMs and connected them through a Host-Only network.
-- Kali Linux -192.168.56.102
+- Kali Linux - 192.168.56.102
 - Windows - 192.168.56.101
 - Wazuh - 192.168.56.103
 
@@ -25,14 +25,14 @@ The project included monitoring for:
 - Failed Windows logons
 - Blocked SMB connections
 
-## File integrity monitoring
+## File integrity Monitoring
 Wazuh File Integrity Monitoring was configured on the Windows endpoint.
 The Windows Startup folder and relevant registry locations were monitored for changes. I then created a test file in the Startup folder to confirm that Wazuh detected the changes. I also changed the contents of the test file to confirm that this would also be detected.
 
 The resulting alerts showed that the file had been added and later modified, including changes to its file hash.
 
-## custom detections
-I created 4 customer wazuh rules which were all tested.
+## Custom Detections
+I created 4 custom Wazuh rules which were all tested.
 
 ### Rule 100050 — Port Scan Detection
 This rule detects repeated Windows Firewall blocks from the same source IP within 10 seconds.
@@ -42,16 +42,16 @@ The detection was tested using controlled Nmap scanning activity from Kali again
 ### Rule 100060 — Suspicious Process Detection
 This rule detects the creation of commonly used Windows command and scripting interpreters.
 The rule detects:
--PowerShell
--CMD
--WScript
--CScript
--MSHTA
+- PowerShell
+- CMD
+- WScript
+- CScript
+- MSHTA
 
 The rule uses a PCRE2 regular expression to match the executable names regardless of capitalisation, for example PowerShell, powershell or POWERSHELL. It is mapped to MITRE ATT&CK T1059 — Command and Scripting Interpreter. The detection was tested by launching each of the monitored processes on the Windows VM.
 
 ### Rule 100070 — Brute-Force Detection
-This rule detects repeated Windows logon failures against the same username. The rule triggers after 5 matching failures within 60 seconds. It is mapped to MITRE ATT&CK T1110 — Brute Force. The detection was tested using controlled failed logon attempts against the Windows account.
+This rule detects repeated Windows logon failures against the same username. The rule triggers after 5 matching failures within 60 seconds. It is mapped to MITRE ATT&CK T1110 — Brute-Force. The detection was tested using controlled failed logon attempts against the Windows account.
 
 ### Rule 100080 — Blocked SMB Connection Detection
 This rule detects blocked Windows Firewall connections to TCP port 445. Port 445 is commonly used by SMB. The rule is mapped to MITRE ATT&CK T1021.002 — SMB/Windows Admin Shares. The detection was tested by generating a controlled connection attempt from Kali to port 445 on the Windows VM.
@@ -61,9 +61,9 @@ The custom rules were created using existing Wazuh rules as parent or matched ru
 
 ## Trouble shooting and Investigations
 The main source of learning for me in this project was for sure trouble shooting, coming up against a problem and finding a fix. 
-Some of the custome rules did not initially trigger as expected so i had to invistaget why this was and then come up with a solution. For the port scan detetction, it didnt initally trigger so i investiagted the Windows Firewall and traced the wazuh rule heirachy to identify rule 60104 as the relvent parent rule. i used the wazuh alert generated from the Windows event to investigate  the existinf rules and trace the rule hierachy which allowed me to understand what i needed to change in my custom rule script.
-My Proccess detection rule didnt work initially either so i investigated and founf that the field matching was the issue and that it needed to use the PCRE2 regex type so Wazuh would interpret the field as a regular expression. I updated the rule to use type ="pcre2", after which the dtection successfully matched the required process names.
-My brute force rule i initally used the wrong parent, i discovered this beacuse wazuh would already detect a failed login however and i was building my brute force rule from that, i found that the windows event ID 4625 was being detected by rule 60122. i updated the custom rule to use 60122, after which the detction rule triggered succesfully.
+Some of the custom rules did not initially trigger as expected so I had to investigate why this was and then come up with a solution. For the port scan detetction, it didn't initally trigger so I investiagted the Windows Firewall and traced the Wazuh rule heirachy to identify rule 60104 as the relevant parent rule. I used the Wazuh alert generated from the Windows event to investigate the existing rules and trace the rule hierachy which allowed me to understand what I needed to change in my custom rule script.
+My process detection rule didn't work initially either so I investigated and found that the field matching was the issue and that it needed to use the PCRE2 regex type so Wazuh would interpret the field as a regular expression. I updated the rule to use type ="pcre2", after which the detection successfully matched the required process names.
+For the brute force rule I initally used the wrong parent, I discovered this because Wazuh would already detect a failed login and I was building my brute force rule from that. I found that the windows event ID 4625 was being detected by rule 60122. I updated the custom rule to use 60122, after which the detection rule triggered sucessfully.
 
 ## Screenshots 
 ### VMs
@@ -77,6 +77,8 @@ My brute force rule i initally used the wrong parent, i discovered this beacuse 
 
 ### File Integrity Monitoring (FIM)
 <img width="1917" height="696" alt="Screenshot 2026-10-05 222053" src="https://github.com/user-attachments/assets/7d9590fe-8574-4c69-8b1f-c01dadb41c98" />
+
+### (See "evidence" for more screenshots)
 
 
 
