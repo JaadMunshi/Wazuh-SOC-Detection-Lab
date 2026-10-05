@@ -8,8 +8,6 @@ The custom Wazuh detection rules created in this project were mapped to the rele
 
 | Rule ID | Detection | MITRE ATT\&CK Technique |
 
-|---|---|---|
-
 | 100050 | Port Scan | T1046 — Network Service Scanning |
 
 | 100060 | Suspicious Process | T1059 — Command and Scripting Interpreter |
