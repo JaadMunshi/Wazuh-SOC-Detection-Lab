@@ -61,9 +61,9 @@ The custom rules were created using existing Wazuh rules as parent or matched ru
 
 ## Troubleshooting and Investigations
 The main source of learning for me in this project was for sure troubleshooting, coming up against a problem and finding a fix. 
-Some of the custom rules did not initially trigger as expected so I had to investigate why this was and then come up with a solution. For the port scan detetction, it didn't initally trigger so I investiagted the Windows Firewall and traced the Wazuh rule heirachy to identify rule 60104 as the relevant parent rule. I used the Wazuh alert generated from the Windows event to investigate the existing rules and trace the rule hierachy which allowed me to understand what I needed to change in my custom rule script.
+Some of the custom rules did not initially trigger as expected so I had to investigate why this was and then come up with a solution. For the port scan detetction, it didn't initially trigger so I investiagted the Windows Firewall and traced the Wazuh rule hierarchy to identify rule 60104 as the relevant parent rule. I used the Wazuh alert generated from the Windows event to investigate the existing rules and trace the rule hierarchy which allowed me to understand what I needed to change in my custom rule script.
 My process detection rule didn't work initially either so I investigated and found that the field matching was the issue and that it needed to use the PCRE2 regex type so Wazuh would interpret the field as a regular expression. I updated the rule to use type ="pcre2", after which the detection successfully matched the required process names.
-For the brute force rule I initally used the wrong parent, I discovered this because Wazuh would already detect a failed login and I was building my brute force rule from that. I found that the windows event ID 4625 was being detected by rule 60122. I updated the custom rule to use 60122, after which the detection rule triggered sucessfully.
+For the brute force rule I initially used the wrong parent, I discovered this because Wazuh would already detect a failed login and I was building my brute force rule from that. I found that the windows event ID 4625 was being detected by rule 60122. I updated the custom rule to use 60122, after which the detection rule triggered sucessfully.
 
 ## Screenshots 
 ### VMs
